@@ -1,0 +1,12 @@
+html {text-align: center}
+ul {
+    padding: 3em;
+    list-style: none;
+    font-size: 1.1em;
+}
+li {margin-bottom: 2em;}
+input[type="text"] {margin-bottom: 2em; margin-left: 1em;}
+input[type="checkbox"] {margin-bottom: 2em; margin-left: 1em;}
+form {
+    padding: 3em;
+}
