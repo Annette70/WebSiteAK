@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a id="Login" href="login.jsp"><u>Login</u></a>
 <h1>Emoji Store</h1>
 <form>
     <label for="Name">Name</label>
