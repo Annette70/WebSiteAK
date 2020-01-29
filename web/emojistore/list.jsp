@@ -15,16 +15,23 @@
 <body>
 <a id="Login" href="login.jsp"><u>Login</u></a>
 <h1>Emoji Store</h1>
-<form>
-    <label for="Happy">Happy</label>
-    <input type="checkbox" name="happy" id="Happy"><br>
-    <label for="Sad">Sad</label>
-    <input type="checkbox" name="sad" id="Sad"><br>
-    <label for="Surprised">Surprised</label>
-    <input type="checkbox" name="surprised" id="Surprised"><br>
-    <label for="Shocked">Shocked</label>
-    <input type="checkbox" name="shocked" id="Shocked"><br>
-</form>
+<table>
+    <tr>
+        <td>Happy</td>
+        <td><button type="button">Add</button></td>
+        <td><button type="button">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Sad</td>
+        <td><button type="button">Add</button></td>
+        <td><button type="button">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Confused</td>
+        <td><button type="button">Add</button></td>
+        <td><button type="button">Delete</button></td>
+    </tr>
+</table>
 <button type="button">Add Item</button>
 </body>
 </html>

@@ -10,6 +10,13 @@ input[type="checkbox"] {margin-bottom: 2em; margin-left: 1em;}
 form {
     padding: 3em;
 }
+table{
+    margin: auto;
+    padding: 3em;
+}
+th,td{
+    padding: 5px;
+}
 .login {
     text-align: right;
 }
