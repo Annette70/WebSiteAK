@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebSiteAK:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WebSiteAK</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WebSiteAK.war">
+      <element id="artifact" artifact-name="WebSiteAK:war exploded" />
+    </root>
+  </artifact>
+</component>
