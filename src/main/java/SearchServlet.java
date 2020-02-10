@@ -32,9 +32,8 @@ public class SearchServlet extends HttpServlet {
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
             // Build the query as a String
-            StringBuilder sql = new StringBuilder("select name, age, favoriteToy");
+            StringBuilder sql = new StringBuilder("select name, age, speciesnm");
             sql.append("from pet");
-            sql.append("join petDetail on (pet.petID = petDetail.petID)");
             sql.append("where speciesnm = ?"); // Don't end SQL with semicolon!
 
             // Create a connection
@@ -76,8 +75,8 @@ public class SearchServlet extends HttpServlet {
                 output.append("<td>" + name + "</td>");
                 int age = rset.getInt(3);
                 output.append("<td>" + age + "</td>");
-                String favToy = rset.getString(6);
-                output.append("<td>" + favToy + "</td>");
+                String speciesName = rset.getString(4);
+                output.append("<td>" + speciesName + "</td>");
 
 
                 // End the row
@@ -92,7 +91,7 @@ public class SearchServlet extends HttpServlet {
             response.getWriter().print(output.toString());
 
         } catch (SQLException | ClassNotFoundException e) {
-            // If there's an exception locating the driver, send IT as the response
+            // If there's an exception locating the driver, send it as the response
             response.getWriter().print(e.getMessage());
             e.printStackTrace();
         } finally {
