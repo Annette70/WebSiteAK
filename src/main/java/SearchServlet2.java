@@ -34,10 +34,10 @@ public class SearchServlet2 extends HttpServlet {
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
             // Build the query as a String
-            StringBuilder sql = new StringBuilder("select nm, age, favorite_toy, weight, nickname ");
+            StringBuilder sql = new StringBuilder("select speciesnm, age, favoriteToy, weight, nickname ");
             sql.append("from pet ");
-            sql.append("join pet_detail on (pet.pet_id = pet_detail.pet_id)");
-            sql.append("where species_nm = ?"); // Don't end SQL with semicolon!
+            sql.append("join petDetail on (pet.petID = petDetail.petID)");
+            sql.append("where speciesnm = ?"); // Don't end SQL with semicolon!
 
             // Create a connection
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
@@ -59,14 +59,12 @@ public class SearchServlet2 extends HttpServlet {
                 PetDetail detail = new PetDetail();
                 pet.setDetail(detail);
 
-                detail.setFavoriteToy(rset.getString(3));
-                detail.setWeight(rset.getInt(4));
-                detail.setNickname(rset.getString(5));
+                detail.setFavoriteToy(rset.getString(2));
                 petList.add(pet);
             }
 
             request.setAttribute("pets", petList);
-            request.getRequestDispatcher("petSearch.jsp").forward(request, response);
+            request.getRequestDispatcher("search2.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException e) {
             // If there's an exception locating the driver, send IT as the response
