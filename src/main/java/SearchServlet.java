@@ -96,27 +96,7 @@ public class SearchServlet extends HttpServlet {
             response.getWriter().print(e.getMessage());
             e.printStackTrace();
         } finally {
-            if (rset != null) {
-                try {
-                    rset.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pstmt != null) {
-                try {
-                    pstmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            edu.wctc.DatabaseUtils.closeAll(conn, pstmt, rset);
         }
     }
 }

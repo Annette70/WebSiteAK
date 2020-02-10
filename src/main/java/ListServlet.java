@@ -46,30 +46,7 @@ public class ListServlet extends HttpServlet {
             ex.printStackTrace();
 
         } finally {
-            try {
-                if (rset != null) {
-                    rset.close();
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            edu.wctc.DatabaseUtils.closeAll(conn, stmt, rset);
         }
     }
 }

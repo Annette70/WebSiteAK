@@ -53,8 +53,8 @@ public class SearchServlet2 extends HttpServlet {
             // Loop while the result set has more rows
             while (rset.next()) {
                 Pet pet = new Pet();
-                pet.setName(rset.getString(1));
-                pet.setAge(rset.getInt(2));
+                pet.setName(rset.getString(2));
+                pet.setAge(rset.getInt(3));
 
                 PetDetail detail = new PetDetail();
                 pet.setDetail(detail);
