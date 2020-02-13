@@ -1,3 +1,5 @@
+package edu.wctc;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,32 +22,25 @@ public class ListServlet2 extends HttpServlet {
         }
 
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // Declare outside the try/catch so the variables are in scope in the finally block
             Connection conn = null;
             Statement stmt = null;
             ResultSet rset = null;
 
             try {
-                // Load the driver
                 Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
-                // Find the absolute path of the database folder
                 String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
-                StringBuilder sql = new StringBuilder("SELECT petID, name, age, speciesnm");
-                sql.append(" FROM pet");
-                sql.append(" ORDER BY age"); // Don't end SQL with semicolon!
+                StringBuilder sql = new StringBuilder("Select petID, name, age, speciesnm");
+                sql.append(" From pet");
+                sql.append(" Order by age");
 
-                // Create a connection
                 conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
-                // Create a statement to execute SQL
                 stmt = conn.createStatement();
-                // Execute a SELECT query and get a result set
                 rset = stmt.executeQuery(sql.toString());
 
                 List<Pet> petList = new ArrayList<Pet>();
 
-                // Loop while the result set has more rows
                 while (rset.next()) {
                     Pet pet = new Pet();
                     pet.setId(rset.getInt(1));
@@ -59,11 +54,10 @@ public class ListServlet2 extends HttpServlet {
                 request.getRequestDispatcher("list2.jsp").forward(request, response);
 
             } catch (SQLException | ClassNotFoundException e) {
-                // If there's an exception locating the driver, send IT as the response
                 response.getWriter().print(e.getMessage());
                 e.printStackTrace();
             } finally {
-                edu.wctc.DatabaseUtils.closeAll(conn, stmt, rset);
+                DatabaseUtils.closeAll(conn, stmt, rset);
             }
         }
 }

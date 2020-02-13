@@ -3,7 +3,6 @@ package edu.wctc;
 import java.sql.*;
 
 public class DatabaseUtils {
-    // Connection constants for use by all servlets
     public static final String DRIVER_NAME = "jdbc:derby:";
     public static final String DATABASE_PATH = "db";
     public static final String USERNAME = "annette";

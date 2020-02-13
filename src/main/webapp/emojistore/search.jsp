@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>Search</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <form action="search" method="get">
-    Search by species <input name="species" type="text">
+    Search by species <input name="speciesnm" type="text">
     <br>
     <input type="submit">
 </form>

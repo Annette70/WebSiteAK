@@ -1,3 +1,4 @@
+package edu.wctc;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +47,7 @@ public class ListServlet extends HttpServlet {
             ex.printStackTrace();
 
         } finally {
-            edu.wctc.DatabaseUtils.closeAll(conn, stmt, rset);
+            DatabaseUtils.closeAll(conn, stmt, rset);
         }
     }
 }

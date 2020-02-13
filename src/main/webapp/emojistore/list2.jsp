@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Pets</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
     <base href="${pageContext.request.contextPath}/"/>
 </head>
 <body>

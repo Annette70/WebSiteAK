@@ -1,3 +1,4 @@
+package edu.wctc;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,77 +26,88 @@ public class SearchServlet extends HttpServlet {
         try {
             String searchTerm = request.getParameter("speciesnm");
 
-            // Load the driver
+            //Load driver
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
-            // Find the absolute path of the database folder
+            //Find the absolute path of the database folder
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
-            // Build the query as a String
-            StringBuilder sql = new StringBuilder("select name, age, speciesnm");
+            //Build the query as a String
+            StringBuilder sql = new StringBuilder("select petID, name, age, speciesnm");
             sql.append("from pet");
-            sql.append("where speciesnm = ?"); // Don't end SQL with semicolon!
+            sql.append("where speciesnm = ?");
 
-            // Create a connection
+            //Create a connection
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
-            // Create a statement to execute SQL
+            //Create a statement to execute SQL
             pstmt = conn.prepareStatement(sql.toString());
-            // Fill the prepared statement params
+            //Fill in the prepared statement parameters
             pstmt.setString(1, searchTerm);
-            // Execute a SELECT query and get a result set
+            //Execute a Select query and get a result set
             rset = pstmt.executeQuery();
 
-            // Create a StringBuilder for ease of appending strings
             StringBuilder output = new StringBuilder();
 
-            // HTML to create a simple web page
+            //Create a simple web page
             output.append("<html><head><link type='text/css' rel='stylesheet' href='css/style.css'></head>");
             output.append("<body>");
 
-            // Start the table
+            //Start the table
             output.append("<table>");
-            // Start a row
             output.append("<tr>");
-            // Add the headers
-            output.append("<th>Name</th><th>Age</th><th>Favorite Toy</th>");
-            // End the row
+            output.append("<th>PetID</th><th>Name</th><th>Age</th><th>Favorite Toy</th>");
             output.append("</tr>");
 
-            // Loop while the result set has more rows
+            //Loop while the result set has more rows
             while (rset.next()) {
-                // Start a row
                 output.append("<tr>");
-                // Get the first string (the pet name) from each record
-                String petName = rset.getString(1);
-                // Add a cell with the info
+                int petID = rset.getInt(1);
+                output.append("<td>" + petID + "</td>");
+
+                String petName = rset.getString(2);
                 output.append("<td>" + petName + "</td>");
 
-                // Get the rest of the pet data and append likewise
-                String name = rset.getString(2);
-                output.append("<td>" + name + "</td>");
                 int age = rset.getInt(3);
                 output.append("<td>" + age + "</td>");
+
                 String speciesName = rset.getString(4);
                 output.append("<td>" + speciesName + "</td>");
 
-
-                // End the row
                 output.append("</tr>");
             }
 
-            // Close all those opening tags
+            //Close all opening tags
             output.append("</table></body></html>");
 
-            // Send the HTML as the response
+            //Send HTML as the response
             response.setContentType("text/html");
             response.getWriter().print(output.toString());
 
         } catch (SQLException | ClassNotFoundException e) {
-            // If there's an exception locating the driver, send it as the response
             response.getWriter().print(e.getMessage());
             e.printStackTrace();
         } finally {
-            edu.wctc.DatabaseUtils.closeAll(conn, pstmt, rset);
+            if (rset != null) {
+                try {
+                    rset.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

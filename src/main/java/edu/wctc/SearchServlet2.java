@@ -1,3 +1,5 @@
+package edu.wctc;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,30 +29,22 @@ public class SearchServlet2 extends HttpServlet {
         try {
             String searchTerm = request.getParameter("speciesName");
 
-            // Load the driver
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
-            // Find the absolute path of the database folder
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
-            // Build the query as a String
             StringBuilder sql = new StringBuilder("select speciesnm, age, favoriteToy, weight, nickname ");
             sql.append("from pet ");
             sql.append("join petDetail on (pet.petID = petDetail.petID)");
-            sql.append("where speciesnm = ?"); // Don't end SQL with semicolon!
+            sql.append("where speciesnm = ?");
 
-            // Create a connection
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
-            // Create a statement to execute SQL
             pstmt = conn.prepareStatement(sql.toString());
-            // Fill the prepared statement params
             pstmt.setString(1, searchTerm);
-            // Execute a SELECT query and get a result set
             rset = pstmt.executeQuery();
 
             List<Pet> petList = new ArrayList<Pet>();
 
-            // Loop while the result set has more rows
             while (rset.next()) {
                 Pet pet = new Pet();
                 pet.setName(rset.getString(2));
@@ -67,11 +61,10 @@ public class SearchServlet2 extends HttpServlet {
             request.getRequestDispatcher("search2.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException e) {
-            // If there's an exception locating the driver, send IT as the response
             response.getWriter().print(e.getMessage());
             e.printStackTrace();
         } finally {
-            edu.wctc.DatabaseUtils.closeAll(conn, pstmt, rset);
+            DatabaseUtils.closeAll(conn, pstmt, rset);
         }
     }
 }

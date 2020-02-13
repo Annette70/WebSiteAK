@@ -1,3 +1,5 @@
+package edu.wctc;
+
 public class PetDetail {
     private String favoriteToy;
 
