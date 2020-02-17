@@ -12,10 +12,10 @@ import java.util.List;
 
 @WebServlet(name = "petList", urlPatterns = "/list2")
 public class ListServlet2 extends HttpServlet {
-        private final String DRIVER_NAME = "jdbc:derby:";
-        private final String DATABASE_PATH = "../../db";
-        private final String USERNAME = "annette";
-        private final String PASSWORD = "annette";
+    private final String DRIVER_NAME = "jdbc:derby:";
+    private final String DATABASE_PATH = "../../db";
+    private final String USERNAME = "annette";
+    private final String PASSWORD = "annette";
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class SearchServlet2 extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";
-    private final String SCHEMA = "annette";
+    private final String USER = "annette";
     private final String PASSWORD = "annette";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,7 +38,7 @@ public class SearchServlet2 extends HttpServlet {
             sql.append("join petDetail on (pet.petID = petDetail.petID)");
             sql.append("where speciesnm = ?");
 
-            conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
+            conn = DriverManager.getConnection(DRIVER_NAME + absPath, USER, PASSWORD);
             pstmt = conn.prepareStatement(sql.toString());
             pstmt.setString(1, searchTerm);
             rset = pstmt.executeQuery();

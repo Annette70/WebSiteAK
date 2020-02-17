@@ -9,10 +9,10 @@ import java.sql.*;
 
 @WebServlet(name = "ListServlet" , urlPatterns = "/list1")
 public class ListServlet extends HttpServlet {
-    private final String PATH = "../../db";
-    private final String USER = "annette";
-    private final String PW = "annette";
-    private final String DRIVER = "jdbc:derby:";
+    private final String DRIVER_NAME = "jdbc:derby:";
+    private final String DATABASE_PATH = "../../db";
+    private final String USERNAME = "annette";
+    private final String PASSWORD = "annette";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,8 +26,8 @@ public class ListServlet extends HttpServlet {
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
-            String absPath = getServletContext().getRealPath("/") + PATH;
-            conn = DriverManager.getConnection(DRIVER + absPath, USER, PW);
+            String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
+            conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
             stmt = conn.createStatement();
             rset = stmt.executeQuery("SELECT petID, speciesnm FROM pet");
             StringBuilder html = new StringBuilder("<html><body>");

@@ -11,7 +11,7 @@ import java.sql.*;
 public class SearchServlet extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";
-    private final String SCHEMA = "annette";
+    private final String USERNAME = "annette";
     private final String PASSWORD = "annette";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,7 +38,7 @@ public class SearchServlet extends HttpServlet {
             sql.append("where speciesnm = ?");
 
             //Create a connection
-            conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
+            conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
             //Create a statement to execute SQL
             pstmt = conn.prepareStatement(sql.toString());
             //Fill in the prepared statement parameters
@@ -48,7 +48,7 @@ public class SearchServlet extends HttpServlet {
 
             StringBuilder output = new StringBuilder();
 
-            //Create a simple web page
+            //Create web page
             output.append("<html><head><link type='text/css' rel='stylesheet' href='css/style.css'></head>");
             output.append("<body>");
 
@@ -76,7 +76,6 @@ public class SearchServlet extends HttpServlet {
                 output.append("</tr>");
             }
 
-            //Close all opening tags
             output.append("</table></body></html>");
 
             //Send HTML as the response
