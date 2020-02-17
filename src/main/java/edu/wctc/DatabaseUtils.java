@@ -3,12 +3,8 @@ package edu.wctc;
 import java.sql.*;
 
 public class DatabaseUtils {
-    public static final String DRIVER_NAME = "jdbc:derby:";
-    public static final String DATABASE_PATH = "db";
-    public static final String USERNAME = "annette";
-    public static final String PASSWORD = "annette";
 
-    public static void closeAll(Connection conn, Statement stmt, ResultSet rset) {
+public static void closeAll(Connection conn, Statement stmt, ResultSet rset) {
         if (rset != null) {
             try {
                 rset.close();
