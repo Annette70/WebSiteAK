@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Emoji Store</h1>
+<jsp:include page="header.jsp" />
 <p>Browse Items</p>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

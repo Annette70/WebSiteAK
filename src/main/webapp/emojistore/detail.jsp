@@ -9,6 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <a href="${appRoot}index.jsp">Home</a>
     <title>Item Details</title>
     <link rel="stylesheet" href="style.css">
 </head>

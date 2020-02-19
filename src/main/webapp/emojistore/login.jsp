@@ -21,5 +21,6 @@
     <input type="text" name="password" id="myPassword" required><br>
 </form>
 <button type="button">Login</button>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "SearchServlet", urlPatterns = "/search")
+@WebServlet(name = "SearchServlet", urlPatterns = "/emojistore/search")
 public class SearchServlet extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";
@@ -33,8 +33,8 @@ public class SearchServlet extends HttpServlet {
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
             //Build the query as a String
-            StringBuilder sql = new StringBuilder("select petID, name, age, speciesnm");
-            sql.append("from pet");
+            StringBuilder sql = new StringBuilder("select petID, name, age, speciesnm ");
+            sql.append("from pet ");
             sql.append("where speciesnm = ?");
 
             //Create a connection

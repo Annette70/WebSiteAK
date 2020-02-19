@@ -7,7 +7,7 @@
 </head>
 <body>
 <a id="Login" href="login.jsp"><u>Login</u></a>
-<h1>Emoji Store</h1>
+<jsp:include page="header.jsp" />
 <table>
     <tr>
         <td>Happy</td>
@@ -26,5 +26,6 @@
     </tr>
 </table>
 <button type="button">Add Item</button>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

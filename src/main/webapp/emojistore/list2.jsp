@@ -7,6 +7,7 @@
     <base href="${pageContext.request.contextPath}/"/>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <table>
     <tr>
         <th>ID</th>
@@ -24,5 +25,6 @@
     </c:forEach>
 </table>
 <a href="index.jsp">Home</a>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

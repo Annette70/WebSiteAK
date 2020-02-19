@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "SearchServlet2", urlPatterns = "/search2")
+@WebServlet(name = "SearchServlet2", urlPatterns = "/emojistore/search2")
 public class SearchServlet2 extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";
@@ -27,16 +27,16 @@ public class SearchServlet2 extends HttpServlet {
         ResultSet rset = null;
 
         try {
-            String searchTerm = request.getParameter("speciesName");
+            String searchTerm = request.getParameter("speciesnm");
 
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
-            StringBuilder sql = new StringBuilder("select speciesnm, age, favoriteToy, weight, nickname ");
+            StringBuilder sql = new StringBuilder("select pet.speciesnm, pet.age, favoriteToy ");
             sql.append("from pet ");
-            sql.append("join petDetail on (pet.petID = petDetail.petID)");
-            sql.append("where speciesnm = ?");
+            sql.append("join petDetail on (pet.petID = petDetail.petID) ");
+            sql.append("where pet.speciesnm = ?");
 
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
             pstmt = conn.prepareStatement(sql.toString());
@@ -47,13 +47,13 @@ public class SearchServlet2 extends HttpServlet {
 
             while (rset.next()) {
                 Pet pet = new Pet();
-                pet.setName(rset.getString(2));
-                pet.setAge(rset.getInt(3));
+                pet.setName(rset.getString(1));
+                pet.setAge(rset.getInt(2));
 
                 PetDetail detail = new PetDetail();
                 pet.setDetail(detail);
 
-                detail.setFavoriteToy(rset.getString(2));
+                detail.setFavoriteToy(rset.getString(3));
                 petList.add(pet);
             }
 

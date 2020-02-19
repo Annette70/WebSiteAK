@@ -5,10 +5,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <form action="search" method="get">
     Search by species <input name="speciesnm" type="text">
     <br>
     <input type="submit">
 </form>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <table>
     <tr>
         <th>Name</th>
@@ -21,6 +22,7 @@
         </tr>
     </c:forEach>
 </table>
-<a href="${appRoot}/index.jsp">Home</a>
+<a href="${appRoot}index.jsp">Home</a>
 </body>
+<jsp:include page="footer.jsp" />
 </html>
