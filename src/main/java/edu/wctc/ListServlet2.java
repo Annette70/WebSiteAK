@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "petList", urlPatterns = "/list2")
 public class ListServlet2 extends HttpServlet {
@@ -35,6 +37,7 @@ public class ListServlet2 extends HttpServlet {
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
             stmt = conn.createStatement();
             rset = stmt.executeQuery(sql.toString());
+            StringBuilder html = new StringBuilder("<html><body>");
 
             List<Pet> petList = new ArrayList<Pet>();
 
@@ -47,6 +50,7 @@ public class ListServlet2 extends HttpServlet {
                 petList.add(pet);
             }
 
+            html.append("</body></html>");
             request.setAttribute("pets", petList);
             request.getRequestDispatcher("list2.jsp").forward(request, response);
 

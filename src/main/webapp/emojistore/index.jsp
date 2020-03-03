@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Annette
-  Date: 1/25/2020
-  Time: 7:20 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -13,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div>
+    <a href="controller/showHomePage">Home</a>
+    <a href="controller/showLoginPage">Login</a>
+    <a href="controller/showSearch">Search</a>
+</div>
 <jsp:include page="header.jsp" />
 <p>Browse Items</p>
 <jsp:include page="footer.jsp" />
