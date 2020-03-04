@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <a href="${appRoot}index.jsp">Home</a>
     <title>Item Details</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../WEB-INF/resources/style.css">
 </head>
 <body>
-<a id="Login" href="login.jsp"><u>Login</u></a>
+<a id="Login" href="../WEB-INF/view/login.jsp"><u>Login</u></a>
 <h1>Emoji Store</h1>
 <form>
     <label for="Name">Name</label>

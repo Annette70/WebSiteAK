@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Item List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../WEB-INF/resources/style.css">
 </head>
 <body>
-<a id="Login" href="login.jsp"><u>Login</u></a>
+<a id="Login" href="../WEB-INF/view/login.jsp"><u>Login</u></a>
 <jsp:include page="header.jsp" />
 <table>
     <tr>
