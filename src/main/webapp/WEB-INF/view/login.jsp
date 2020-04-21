@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
 <h1>Login to Emoji Store</h1>
@@ -21,6 +21,6 @@
     <input type="text" name="password" id="myPassword" required><br>
 </form>
 <button type="button">Login</button>
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../emojistore/footer.jsp" />
 </body>
 </html>

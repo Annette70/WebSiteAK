@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Pets search</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../WEB-INF/resources/style.css">
 </head>
 <body>
 <jsp:include page="header.jsp" />

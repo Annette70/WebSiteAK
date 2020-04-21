@@ -50,6 +50,17 @@ public class ListServlet2 extends HttpServlet {
                 petList.add(pet);
             }
 
+            while (rset.next()) {
+                int id = rset.getInt("petID");
+                html.append("<p>").append(id).append(",").append(id).append("</p>");
+                String nm = rset.getString(2);
+                html.append("<p>").append(id).append(",").append(nm).append("</p>");
+                int age = rset.getInt(3);
+                html.append("<p>").append(id).append(",").append(age).append("</p>");
+                String species =rset.getString(4);
+                html.append("<p>").append(id).append(",").append(species).append("</p>");
+            }
+
             html.append("</body></html>");
             request.setAttribute("pets", petList);
             request.getRequestDispatcher("list2.jsp").forward(request, response);

@@ -24,7 +24,7 @@
         </tr>
     </c:forEach>
 </table>
-<a href="index.jsp">Home</a>
+<a href="../WEB-INF/view/index.jsp">Home</a>
 <jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Search</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../WEB-INF/resources/style.css">
 </head>
 <body>
 <jsp:include page="header.jsp" />

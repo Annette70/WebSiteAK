@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+<link rel="stylesheet" href="resources/style.css">
 <body>
 <form action="search2" method="get">
     Search by species <input name="speciesnm" type="text">

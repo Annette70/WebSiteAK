@@ -7,22 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/controller")
 public class HomeController {
 
-    @RequestMapping("/showHomePage")
-    public String showHomePage(Model model){
-        return "emojistore/index";
+    @RequestMapping("/")
+    public String showHome(Model model){
+        return "index";
     }
 
-    @RequestMapping("/showLoginPage")
-    public String showLoginPage(Model model) {
-        return "emojistore/login";
+    @RequestMapping("/showLogin")
+    public String showLogin(Model model) {
+        return "login";
     }
 
     @RequestMapping("/showSearch")
     public String showSearch(Model model) {
-        return "emojistore/Search3";
+        return "Search3";
     }
 
     @RequestMapping(path = "/errors")
