@@ -1,17 +1,10 @@
 package edu.wctc.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "emoji")
 public class Emoji {
@@ -29,6 +22,9 @@ public class Emoji {
 
     @Column(name = "RatingID")
     private Integer ratingID;
+
+    @Column(name = "image_id")
+    private Integer imageId;
 
     public Emoji(Integer id, String emote, String characterName, Integer ratingID){
         this.id = id;
@@ -60,6 +56,62 @@ public class Emoji {
             characterDetailList = new ArrayList<>();
         }
         characterDetailList.add(tempCharacterDetail);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getEmote() {
+        return emote;
+    }
+
+    public void setEmote(String emote) {
+        this.emote = emote;
+    }
+
+    public String getCharacterName() {
+        return characterName;
+    }
+
+    public void setCharacterName(String characterName) {
+        this.characterName = characterName;
+    }
+
+    public Integer getRatingID() {
+        return ratingID;
+    }
+
+    public void setRatingID(Integer ratingID) {
+        this.ratingID = ratingID;
+    }
+
+    public Integer getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public List<CharacterDetail> getCharacterDetailList() {
+        return characterDetailList;
+    }
+
+    public void setCharacterDetailList(List<CharacterDetail> characterDetailList) {
+        this.characterDetailList = characterDetailList;
     }
 }
 

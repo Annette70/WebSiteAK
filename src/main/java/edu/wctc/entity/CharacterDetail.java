@@ -1,18 +1,11 @@
 package edu.wctc.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "characterdetail")
 public class CharacterDetail {
@@ -46,5 +39,29 @@ public class CharacterDetail {
             emojiList = new ArrayList<>();
         }
         emojiList.add(tempEmoji);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public List<Emoji> getEmojiList() {
+        return emojiList;
+    }
+
+    public void setEmojiList(List<Emoji> emojiList) {
+        this.emojiList = emojiList;
     }
 }

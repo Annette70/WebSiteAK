@@ -1,14 +1,14 @@
-package edu.wctc.dao;
+package edu.wctc.service;
 
 import edu.wctc.entity.Rating;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
-public class RatingDAOImpl implements RatingDAO{
+@Service
+public class RatingServiceImpl implements RatingService{
     @Autowired
     private SessionFactory sessionFactory;
 

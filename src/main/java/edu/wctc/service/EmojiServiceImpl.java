@@ -1,16 +1,16 @@
-package edu.wctc.dao;
+package edu.wctc.service;
 
 import edu.wctc.entity.Emoji;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
-public class EmojiDAOImpl implements EmojiDAO {
+@Service
+public class EmojiServiceImpl implements EmojiService{
     @Autowired
     private SessionFactory sessionFactory;
 

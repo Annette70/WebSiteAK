@@ -1,16 +1,9 @@
 package edu.wctc.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "rating")
 public class Rating {
@@ -38,4 +31,27 @@ public class Rating {
 
     public  Rating(){}
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public List<Emoji> getEmojiList() {
+        return emojiList;
+    }
+
+    public void setEmojiList(List<Emoji> emojiList) {
+        this.emojiList = emojiList;
+    }
 }

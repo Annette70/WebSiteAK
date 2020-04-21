@@ -9,8 +9,8 @@
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
         <property name="connection.url">jdbc:derby:db</property>
-        <property name="connection.username">donuts</property>
-        <property name="connection.password">donuts</property>
+        <property name="connection.username">annette</property>
+        <property name="connection.password">annette</property>
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
@@ -25,12 +25,9 @@
         <property name="current_session_context_class">thread</property>
 
         <!-- List the entity classes that contain table mappings -->
-        <mapping class="edu.wctc.entity.City"/>
-        <mapping class="edu.wctc.entity.Donut"/>
-        <mapping class="edu.wctc.entity.DonutReview"/>
-        <mapping class="edu.wctc.entity.DonutShop"/>
-        <mapping class="edu.wctc.entity.DonutShopDetail"/>
-        <mapping class="edu.wctc.entity.Image"/>
+        <mapping class="edu.wctc.entity.CharacterDetail"/>
+        <mapping class="edu.wctc.entity.Emoji"/>
+        <mapping class="edu.wctc.entity.Rating"/>
     </session-factory>
 
 </hibernate-configuration>
