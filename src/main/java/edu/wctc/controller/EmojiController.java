@@ -1,14 +1,17 @@
 package edu.wctc.controller;
 
-import edu.wctc.service.ImageServiceImpl;
+import edu.wctc.service.ImageService;
 import edu.wctc.entity.Emoji;
 import edu.wctc.service.CharacterDetailService;
 import edu.wctc.service.EmojiService;
 import edu.wctc.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +30,9 @@ public class EmojiController {
     @Autowired
     private RatingService ratingService;
 
+    @Autowired
+    private ImageService imageService;
+
     @GetMapping("/list4")
     public String listDonuts(Model theModel) {
         List<Emoji> emojiList = emojiService.getEmojis();
@@ -42,7 +48,7 @@ public class EmojiController {
 
         theModel.addAttribute("aEmoji", theEmoji);
 
-        theModel.addAttribute("emojis", emojiService.getEmojis())
+        theModel.addAttribute("emojis", emojiService.getEmojis());
 
         return "emoji-form";
     }
@@ -76,7 +82,31 @@ public class EmojiController {
 
         return "redirect:/emoji/list4";
     }
+    @GetMapping("/search")
+    public String search(@RequestParam("searchTerm") String theSearchTerm, Model theModel) {
+        List<Emoji> matchingDonuts = emojiService.getEmojisByName(theSearchTerm);
 
-    @GetMapping
+        theModel.addAttribute("emojis", matchingDonuts);
 
+        return "list-emojis";
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder) {
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void handle(Exception e) {
+        e.printStackTrace();
+    }
+
+    @GetMapping("/delete")
+    public String deleteEmoji(@RequestParam("emojiID") int theID){
+        emojiService.deleteEmoji(theID);
+
+        return "redirect/emoji/list4";
+    }
 }
