@@ -4,8 +4,8 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Donut Reviews</title>
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/style.css">
+    <title>Emoji</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
 
@@ -14,20 +14,14 @@
 <div id="container">
 
     <div id="content">
-
-        <!-- add donut button -->
         <button class="add-button"
-                onclick="window.location.href='${cp}/donut/user/showAddDonutForm'; return false;">Add Donut
+                onclick="window.location.href='${cp}/emoji/user/showAddEmojiForm'; return false;">Add Emoji
         </button>
 
-        <!-- search form -->
         <form:form action="search" method="GET">
             Search donuts <input type="search" name="searchTerm"/>
             <input type="submit" value="Search" class="add-button"/>
         </form:form>
-
-        <!-- donut list table -->
-
         <table>
             <tr>
                 <th></th>
@@ -52,9 +46,9 @@
 
                 <tr>
                     <td>
-                        <img src="${imageLink}" alt="${tempEmoji.name}">
+                        <img src="${imageLink}" alt="${tempEmoji.emote}">
                     </td>
-                    <td>${tempEmoji.emote.name}</td>
+                    <td>${tempEmoji.emote}</td>
                     <td>${tempEmoji.characterName}</td>
                     <td>${tempEmoji.rating}</td>
                     <td>

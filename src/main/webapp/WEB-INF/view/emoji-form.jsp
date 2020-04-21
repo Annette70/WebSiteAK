@@ -4,10 +4,8 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Donut Reviews - Edit Donut</title>
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/style.css">
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/donut-form-style.css">
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/select-style.css">
+    <title>Emoji List - Edit Emoji</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
 
@@ -16,7 +14,7 @@
 <div id="container">
 
     <div id="content">
-        <form:form action="${cp}/donut/save" modelAttribute="aEmoji" enctype="multipart/form-data"
+        <form:form action="${cp}/emoji/save" modelAttribute="aEmoji" enctype="multipart/form-data"
                    method="post">
             <form:hidden path="id" value="${aEmoji.id}"/>
             <form:hidden path="imageId" value="${aEmoji.imageId}"/>

@@ -3,8 +3,8 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Donut Reviews - Oops!</title>
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/style.css">
+    <title>Emoji Reviews</title>
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 
 <div id="container">
     <div id="content">
-        <h3>Oops! An error occurred</h3>
+        <h3>An error occurred</h3>
         <p>${errorMessage}</p>
     </div>
 </div>

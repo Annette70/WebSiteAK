@@ -24,8 +24,7 @@
 <html>
 <head>
     <title>Login</title>
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/style.css">
-    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/donut-form-style.css">
+    <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
 <div id="wrapper">
