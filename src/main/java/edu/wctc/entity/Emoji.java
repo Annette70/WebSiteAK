@@ -30,7 +30,6 @@ public class Emoji {
         this.id = id;
         this.emote = emote;
         this.characterName = characterName;
-        this.ratingID = ratingID;
     }
     public Emoji(){}
 

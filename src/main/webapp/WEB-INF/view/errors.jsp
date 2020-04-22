@@ -22,7 +22,7 @@
         <a href="${cp}/emoji/list4">Back to List</a>
     </p>
 </div>
-</div>
+
 <jsp:include page="../../emojistore/footer.jsp" />
 </body>
 </html>

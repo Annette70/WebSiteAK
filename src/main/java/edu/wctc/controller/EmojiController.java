@@ -46,7 +46,7 @@ public class EmojiController {
     public String showAddEmojiForm(Model theModel) {
         Emoji theEmoji = new Emoji();
 
-        theModel.addAttribute("aEmoji", theEmoji);
+        theModel.addAttribute("emoji", theEmoji);
 
         theModel.addAttribute("emojis", emojiService.getEmojis());
 
@@ -57,7 +57,7 @@ public class EmojiController {
     public String showUpdateEmojiForm(@RequestParam ("emojiID") int theID, Model theModel){
         Emoji theEmoji = emojiService.getEmoji(theID);
 
-        theModel.addAttribute("aEmoji", theEmoji);
+        theModel.addAttribute("emoji", theEmoji);
 
         return "emoji-form";
     }
@@ -70,7 +70,7 @@ public class EmojiController {
         if (bindingResult.hasErrors()){
             System.err.println(bindingResult);
 
-            theModel.addAttribute("aEmoji", theEmoji);
+            theModel.addAttribute("emoji", theEmoji);
 
             return "emoji-form";
         }

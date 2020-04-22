@@ -14,10 +14,10 @@
 <div id="container">
 
     <div id="content">
-        <form:form action="${cp}/emoji/save" modelAttribute="aEmoji" enctype="multipart/form-data"
+        <form:form action="${cp}/emoji/save" modelAttribute="emoji" enctype="multipart/form-data"
                    method="post">
-            <form:hidden path="id" value="${aEmoji.id}"/>
-            <form:hidden path="imageId" value="${aEmoji.imageId}"/>
+            <form:hidden path="id" value="${emoji.id}"/>
+            <form:hidden path="imageId" value="${emoji.imageId}"/>
 
             <table>
                 <tr>
@@ -43,9 +43,9 @@
                     <td><label>Image</label></td>
                     <td>
                         <input type="file" name="imageFile">
-                        <c:if test="${aEmoji.imageId != null}">
+                        <c:if test="${emoji.imageId != null}">
                             <br/><br/>
-                            <img src="${cp}/image/display?id=${aEmoji.imageId}" alt="${aEmoji.characterName}">
+                            <img src="${cp}/image/display?id=${emoji.imageId}" alt="${emoji.characterName}">
                         </c:if>
                     </td>
                 </tr>

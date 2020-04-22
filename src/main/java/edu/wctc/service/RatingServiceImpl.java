@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RatingServiceImpl implements RatingService{
@@ -13,6 +14,7 @@ public class RatingServiceImpl implements RatingService{
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public void saveRating(Rating theRating) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -20,6 +22,7 @@ public class RatingServiceImpl implements RatingService{
     }
 
     @Override
+    @Transactional
     public void deleteRating(int theID) {
         Session session = sessionFactory.getCurrentSession();
 

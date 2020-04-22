@@ -19,7 +19,7 @@
         </button>
 
         <form:form action="search" method="GET">
-            Search donuts <input type="search" name="searchTerm"/>
+            <label>Search donuts <input type="search" name="searchTerm"/></label>
             <input type="submit" value="Search" class="add-button"/>
         </form:form>
         <table>

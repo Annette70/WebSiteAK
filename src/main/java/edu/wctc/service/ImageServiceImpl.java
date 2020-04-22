@@ -23,22 +23,22 @@ public class ImageServiceImpl implements ImageService{
 
     private Image notFoundImage;
 
-    @Transactional
     @Override
+    @Transactional
     public void delete(int id) {
         if (id != 0) {
             imageDAO.delete(id);
         }
     }
 
-    @Transactional
     @Override
+    @Transactional
     public void deleteUnusedImages() {
         imageDAO.deleteUnusedImages();
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Image getImage(Integer imageId) {
         Image image = null;
 
@@ -69,8 +69,8 @@ public class ImageServiceImpl implements ImageService{
         }
     }
 
-    @Transactional
     @Override
+    @Transactional
     public int saveImage(MultipartFile image) {
         if (image.getSize() == 0) {
             return -1;

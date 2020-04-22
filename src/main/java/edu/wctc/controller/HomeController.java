@@ -43,7 +43,7 @@ public class HomeController {
                 errorMsg = "Http Error Code 500: Internal server error";
                 break;
             default:
-                errorMsg = "Http Error Code " + httpErrorCode;
+                errorMsg = "Something went wrong";
         }
 
         theModel.addAttribute("errorMessage", errorMsg);

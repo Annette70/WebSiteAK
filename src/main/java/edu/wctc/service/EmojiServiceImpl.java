@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class EmojiServiceImpl implements EmojiService{
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public List<Emoji> getEmojis(){
         Session session = sessionFactory.getCurrentSession();
 
@@ -24,6 +26,7 @@ public class EmojiServiceImpl implements EmojiService{
     }
 
     @Override
+    @Transactional
     public void saveEmoji(Emoji theEmoji) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -31,6 +34,7 @@ public class EmojiServiceImpl implements EmojiService{
     }
 
     @Override
+    @Transactional
     public Emoji getEmoji(int theID) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -38,6 +42,7 @@ public class EmojiServiceImpl implements EmojiService{
     }
 
     @Override
+    @Transactional
     public void deleteEmoji(int theID) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -45,6 +50,7 @@ public class EmojiServiceImpl implements EmojiService{
     }
 
     @Override
+    @Transactional
     public List<Emoji> getEmojisByName(String theSearchTerm) {
         Session session = sessionFactory.getCurrentSession();
 

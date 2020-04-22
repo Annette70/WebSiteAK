@@ -23,7 +23,7 @@ public class CharacterDetailDAOImpl implements CharacterDetailDAO{
     public void deleteCharacterDetail(String theName) {
         Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery("delete from CharacterDetail where id = :doomedCharacterName");
+        Query query = session.createQuery("delete from CharacterDetail where name = :doomedCharacterName");
 
         query.setParameter("doomedCharacterName", theName);
 
