@@ -28,6 +28,7 @@
         <mapping class="edu.wctc.entity.CharacterDetail"/>
         <mapping class="edu.wctc.entity.Emoji"/>
         <mapping class="edu.wctc.entity.Rating"/>
+        <mapping class="edu.wctc.entity.Image"/>
     </session-factory>
 
 </hibernate-configuration>

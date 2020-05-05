@@ -2,8 +2,6 @@ package edu.wctc.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "emoji")
@@ -17,21 +15,9 @@ public class Emoji {
     @Column(name = "Emote")
     private String emote;
 
-    @Column(name = "CharacterName")
-    private String characterName;
 
-    @Column(name = "RatingID")
-    private Integer ratingID;
-
-    @Column(name = "image_id")
+    @Column(name = "imageid")
     private Integer imageId;
-
-    public Emoji(Integer id, String emote, String characterName, Integer ratingID){
-        this.id = id;
-        this.emote = emote;
-        this.characterName = characterName;
-    }
-    public Emoji(){}
 
     @NotNull
     @ManyToOne(cascade = {CascadeType.DETACH,
@@ -41,28 +27,26 @@ public class Emoji {
     @JoinColumn(name = "RatingID")
     private Rating rating;
 
-    @ManyToMany(cascade = {CascadeType.DETACH,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH})
-    @JoinTable(name = "CharacterDetail",
-            joinColumns = @JoinColumn(name = "CharacterName"),
-            inverseJoinColumns = @JoinColumn(name = "CharacterName"))
-    private List<CharacterDetail> characterDetailList;
+    @JoinColumn(name = "CharacterName")
+    private CharacterDetail characterDetail;
 
-    public void add(CharacterDetail tempCharacterDetail) {
-        if (characterDetailList == null) {
-            characterDetailList = new ArrayList<>();
-        }
-        characterDetailList.add(tempCharacterDetail);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Emoji(Integer id, String emote){
         this.id = id;
+        this.emote = emote;
+    }
+
+    public Emoji(){}
+
+    public CharacterDetail getCharacterDetail() {
+        return characterDetail;
+    }
+
+    public void setCharacterDetail(CharacterDetail characterDetail) {
+        this.characterDetail = characterDetail;
     }
 
     public String getEmote() {
@@ -73,20 +57,12 @@ public class Emoji {
         this.emote = emote;
     }
 
-    public String getCharacterName() {
-        return characterName;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCharacterName(String characterName) {
-        this.characterName = characterName;
-    }
-
-    public Integer getRatingID() {
-        return ratingID;
-    }
-
-    public void setRatingID(Integer ratingID) {
-        this.ratingID = ratingID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getImageId() {
@@ -103,14 +79,6 @@ public class Emoji {
 
     public void setRating(Rating rating) {
         this.rating = rating;
-    }
-
-    public List<CharacterDetail> getCharacterDetailList() {
-        return characterDetailList;
-    }
-
-    public void setCharacterDetailList(List<CharacterDetail> characterDetailList) {
-        this.characterDetailList = characterDetailList;
     }
 }
 

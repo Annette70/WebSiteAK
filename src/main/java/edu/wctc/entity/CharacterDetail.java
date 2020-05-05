@@ -18,21 +18,18 @@ public class CharacterDetail {
 
     @JoinColumn(name = "CharacterDetail")
     private String detail;
+    @OneToMany(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH},
+            mappedBy = "characterDetail")
+    private List<Emoji> emojiList;
 
     public CharacterDetail(String name, String detail){
         this.name = name;
         this.detail = detail;
     }
     public CharacterDetail(){}
-
-    @ManyToMany(cascade = {CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH})
-    @JoinTable(name = "Emoji",
-            joinColumns = @JoinColumn(name = "CharacterName"),
-            inverseJoinColumns = @JoinColumn(name = "CharacterName"))
-    private List<Emoji> emojiList;
 
     public void add(Emoji tempEmoji) {
         if (emojiList == null) {
@@ -45,23 +42,13 @@ public class CharacterDetail {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getDetail() {
-        return detail;
-    }
+    public String getDetail() { return detail; }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
+    public void setDetail(String detail) { this.detail = detail; }
 
-    public List<Emoji> getEmojiList() {
-        return emojiList;
-    }
+    public List<Emoji> getEmojiList() { return emojiList; }
 
-    public void setEmojiList(List<Emoji> emojiList) {
-        this.emojiList = emojiList;
-    }
+    public void setEmojiList(List<Emoji> emojiList) { this.emojiList = emojiList; }
 }

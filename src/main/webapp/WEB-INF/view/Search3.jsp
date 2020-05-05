@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="resources/style.css">
 <body>
 <form action="search2" method="get">
-    Search by species <input name="speciesnm" type="text">
+    Search by species <input name="nm" type="text">
     <br>
     <input type="submit">
 </form>

@@ -9,7 +9,7 @@ import java.util.List;
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ratingID")
+    @Column(name = "RatingID")
     private Integer id;
     @Column(name = "rating")
     private String rating;
@@ -31,27 +31,15 @@ public class Rating {
 
     public  Rating(){}
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
-    public String getRating() {
-        return rating;
-    }
+    public String getRating() { return rating; }
 
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
+    public void setRating(String rating) { this.rating = rating; }
 
-    public List<Emoji> getEmojiList() {
-        return emojiList;
-    }
+    public List<Emoji> getEmojiList() { return emojiList; }
 
-    public void setEmojiList(List<Emoji> emojiList) {
-        this.emojiList = emojiList;
-    }
+    public void setEmojiList(List<Emoji> emojiList) { this.emojiList = emojiList; }
 }

@@ -26,17 +26,17 @@
                         <form:errors path="emote" cssClass="error"/></td>
                 </tr>
                 <tr>
-                    <td><label>Calories</label></td>
+                    <td><label>Rating</label></td>
                     <td><form:input path="rating"/>
                         <form:errors path="rating" cssClass="error"/></td>
                 </tr>
                 <tr>
-                    <td><label>Shop</label></td>
+                    <td><label>Character Details</label></td>
                     <td>
-                        <form:select path="characterName" items="${emojis}" itemLabel="name" itemValue="id"
+                        <form:select path="characterDetail" items="${emojis}" itemLabel="name" itemValue="id"
                                      cssClass="select-css">
                         </form:select>
-                        <form:errors path="characterName" cssClass="error"/>
+                        <form:errors path="characterDetail" cssClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                         <input type="file" name="imageFile">
                         <c:if test="${emoji.imageId != null}">
                             <br/><br/>
-                            <img src="${cp}/image/display?id=${emoji.imageId}" alt="${emoji.characterName}">
+                            <img src="${cp}/image/display?id=${emoji.imageId}" alt="${emoji.imageId}">
                         </c:if>
                     </td>
                 </tr>

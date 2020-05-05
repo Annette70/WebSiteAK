@@ -49,7 +49,7 @@
                         <img src="${imageLink}" alt="${tempEmoji.emote}">
                     </td>
                     <td>${tempEmoji.emote}</td>
-                    <td>${tempEmoji.characterName}</td>
+                    <td>${tempEmoji.characterDetail}</td>
                     <td>${tempEmoji.rating}</td>
                     <td>
                         <a href="${updateLink}">Update</a>

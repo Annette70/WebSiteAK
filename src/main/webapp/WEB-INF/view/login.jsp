@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td><label>Password</label></td>
-                    <td><input type="text" name="password" value="p" required></td>
+                    <td><input type="text" name="password" value="u" required></td>
                 </tr>
                 <tr>
                     <td></td>

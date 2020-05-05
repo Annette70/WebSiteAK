@@ -13,9 +13,9 @@ public class StringToEmojiConverter implements Converter<String, Emoji> {
     @Override
     public Emoji convert(String source){
         int emojiID = Integer.parseInt(source);
-        Emoji aEmoji = emojiService.getEmoji(emojiID);
+        Emoji emoji = emojiService.getEmoji(emojiID);
 
-        return aEmoji;
+        return emoji;
     }
 
 }
