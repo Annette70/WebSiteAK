@@ -2,9 +2,7 @@ package edu.wctc.controller;
 
 import edu.wctc.service.ImageService;
 import edu.wctc.entity.Emoji;
-import edu.wctc.service.CharacterDetailService;
 import edu.wctc.service.EmojiService;
-import edu.wctc.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.http.HttpStatus;
@@ -21,14 +19,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/emoji")
 public class EmojiController {
-    @Autowired
-    private CharacterDetailService characterDetailService;
 
     @Autowired
     private EmojiService emojiService;
-
-    @Autowired
-    private RatingService ratingService;
 
     @Autowired
     private ImageService imageService;
@@ -76,7 +69,7 @@ public class EmojiController {
         }
         int imageId = imageService.saveImage(file);
 
-        emojiService.saveEmoji(theEmoji);
+        emojiService.saveEmoji(theEmoji, imageId);
 
         imageService.deleteUnusedImages();
 

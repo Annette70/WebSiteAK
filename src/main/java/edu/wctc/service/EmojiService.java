@@ -7,7 +7,7 @@ import java.util.List;
 public interface EmojiService {
     List<Emoji> getEmojis();
 
-    void saveEmoji(Emoji theEmoji);
+    void saveEmoji(Emoji theEmoji, int emojiId);
 
     Emoji getEmoji(int theID);
 
