@@ -37,7 +37,7 @@
                 </c:url>
 
                 <c:url var="deleteLink" value="/emoji/delete">
-                    <c:param name="emojiID" value="${tempEmoji.id}"/>
+                    <c:param name="emojiID" value="${tempEmoji.imageId}"/>
                 </c:url>
 
                 <c:url var="imageLink" value="/image/display">
@@ -49,8 +49,8 @@
                         <img src="${imageLink}" alt="${tempEmoji.emote}">
                     </td>
                     <td>${tempEmoji.emote}</td>
-                    <td>${tempEmoji.characterDetail}</td>
-                    <td>${tempEmoji.rating}</td>
+                    <td>${tempEmoji.characterDetail.name}</td>
+                    <td>${tempEmoji.rating.rating}</td>
                     <td>
                         <a href="${updateLink}">Update</a>
                         <a href="${deleteLink}"
