@@ -10,18 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 public class TheHomeController {
 
     @RequestMapping("/")
-    public String showHome(Model model){
+    public String showHome(){
         return "index";
-    }
-
-    @RequestMapping("/showLogin")
-    public String showLogin(Model model) {
-        return "login";
-    }
-
-    @RequestMapping("/showSearch")
-    public String showSearch(Model model) {
-        return "Search3";
     }
 
     @RequestMapping(path = "/errors")

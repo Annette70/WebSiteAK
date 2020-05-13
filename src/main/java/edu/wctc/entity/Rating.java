@@ -14,7 +14,7 @@ public class Rating {
     @Column(name = "rating")
     private String rating;
 
-    @OneToMany(mappedBy = "ratingID",
+    @OneToMany(mappedBy = "rating",
             cascade = CascadeType.ALL)
     private List<Emoji> emojiList;
 

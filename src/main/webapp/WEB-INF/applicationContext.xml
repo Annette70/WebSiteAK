@@ -52,7 +52,7 @@
 
         <property name="jdbcUrl" value="jdbc:derby:#{ servletContext.getRealPath('/') }/../../db"/>
 
-        <property name="user" value="annette"/>
+        <property name="user" value="emoji"/>
         <property name="password" value="annette"/>
 
         <!-- these are connection pool properties for C3P0 -->
