@@ -77,9 +77,9 @@ public class EmojiController {
     }
     @GetMapping("/search")
     public String search(@RequestParam("searchTerm") String theSearchTerm, Model theModel) {
-        List<Emoji> matchingDonuts = emojiService.getEmojisByName(theSearchTerm);
+        List<Emoji> matchingEmojis = emojiService.getEmojisByName(theSearchTerm);
 
-        theModel.addAttribute("emojis", matchingDonuts);
+        theModel.addAttribute("emojis", matchingEmojis);
 
         return "list-emojis";
     }
