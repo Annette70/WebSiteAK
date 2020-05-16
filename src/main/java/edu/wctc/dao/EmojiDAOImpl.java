@@ -48,7 +48,7 @@ public class EmojiDAOImpl implements EmojiDAO {
     public List<Emoji> getEmojisByName(String theSearchTerm) {
         Session session = sessionFactory.getCurrentSession();
 
-        // Add wildcards and make search term lowercase (for case insensitivity)
+        //Add wildcards and make search term lowercase (for case insensitivity)
         theSearchTerm = "%" + theSearchTerm.toLowerCase() + "%";
 
         Query<Emoji> query = session.createQuery("from Emoji where lower(characterDetail.name) like :nameToSearch");
