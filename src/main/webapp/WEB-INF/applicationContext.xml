@@ -27,7 +27,7 @@
             authentication-failure-url="/showLoginForm?error=true"
             username-parameter="username"
             password-parameter="password"
-            default-target-url="/emoji/list4"/>
+            default-target-url="/emoji/list-emojis"/>
     <security:logout logout-url="/logout"
                      logout-success-url="/showLoginForm?logout=true"/>
     </security:http>
