@@ -16,7 +16,7 @@ public class CharacterDetail {
     @Column(name = "CharacterName")
     private String name;
 
-    @JoinColumn(name = "CharacterDetail")
+    @Column(name = "CharacterDetail")
     private String detail;
     @OneToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,

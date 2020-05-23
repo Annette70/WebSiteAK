@@ -15,24 +15,6 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--<security:http use-expressions="true" authentication-manager-ref="myAuthenticationManager" >
-    <security:intercept-url pattern="/emoji/admin/**" access="hasRole('ADMIN')"/>
-    <security:intercept-url pattern="/emoji/user/**" access="hasRole('USER')"/>
-    <security:intercept-url pattern="/resources/**" access="permitAll()"/>
-    <security:intercept-url pattern="/**" access="permitAll()" />
-
-    <security:form-login
-            login-page="/showLoginForm"
-            login-processing-url="/authenticate"
-            authentication-failure-url="/showLoginForm?error=true"
-            username-parameter="username"
-            password-parameter="password"
-            default-target-url="/emoji/list-emojis"/>
-    <security:logout logout-url="/logout"
-                     logout-success-url="/showLoginForm?logout=true"/>
-    </security:http>
--->
-
     <context:component-scan base-package="edu.wctc"/>
 
     <mvc:annotation-driven/>
@@ -94,9 +76,18 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <context:component-scan base-package="edu.wctc.dao, edu.wctc.controller, edu.wctc.service"/>
+    <context:component-scan base-package="edu.wctc.dao, edu.wctc.controller, edu.wctc.service, edu.wctc.rest"/>
 
     <mvc:annotation-driven conversion-service="myConversionService"/>
+
+  <!--<mvc:message-converters>
+        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            <property name="objectMapper">
+                <bean class="edu.wctc.rest.HibernateAwareObjectMapper"/>
+            </property>
+        </bean>
+    </mvc:message-converters>
+</mvc:annotation-driven>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 

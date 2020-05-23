@@ -1,22 +1,39 @@
-html {text-align: center}
+html {text-align: center;
+    background-color: #fff7d1;
+    padding: 1em;}
+
 ul {
     padding: 3em;
     list-style: none;
     font-size: 1.1em;
 }
+
 li {margin-bottom: 2em;}
+
 input[type="text"] {margin-bottom: 2em; margin-left: 1em;}
+
 input[type="checkbox"] {margin-bottom: 2em; margin-left: 1em;}
+
 form {
     padding: 3em;
 }
-table{
-    margin: auto;
-    padding: 3em;
-}
-th,td{
-    padding: 5px;
-}
+
+body{background-color: white;
+    padding: 1em;}
+
+table{margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 1px #3F2860 solid;
+    margin-bottom: 1em;
+    border-collapse: collapse;}
+
+td, th{padding: .5em;
+    border: 1px #3f2860 solid;}
+
+tr:nth-of-type(even){background: #efffe9;}
+
 .login {
     text-align: right;
 }
+
