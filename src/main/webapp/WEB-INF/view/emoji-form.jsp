@@ -33,8 +33,7 @@
                 <tr>
                     <td><label>Character Details</label></td>
                     <td>
-                        <form:select path="characterDetail" items="${emojis}" itemLabel="name" itemValue="id"
-                                     cssClass="select-css">
+                        <form:select path="characterDetail" items="${emojis}" itemLabel="name" itemValue="id">
                         </form:select>
                         <form:errors path="characterDetail" cssClass="error"/>
                     </td>
