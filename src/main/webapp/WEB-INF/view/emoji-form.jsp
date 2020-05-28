@@ -22,19 +22,18 @@
             <table>
                 <tr>
                     <td><label>Name</label></td>
-                    <td><form:input path="emote"/>
+                    <td><form:input path="emote" itemValue="id" value=""/>
                         <form:errors path="emote" cssClass="error"/></td>
                 </tr>
                 <tr>
                     <td><label>Rating</label></td>
-                    <td><form:input path="rating"/>
+                    <td><form:input path="rating" value=""/>
                         <form:errors path="rating" cssClass="error"/></td>
                 </tr>
                 <tr>
                     <td><label>Character Details</label></td>
                     <td>
-                        <form:select path="characterDetail" items="${emojis}" itemLabel="name" itemValue="id">
-                        </form:select>
+                        <form:input path="characterDetail.detail" value=""/>
                         <form:errors path="characterDetail" cssClass="error"/>
                     </td>
                 </tr>
