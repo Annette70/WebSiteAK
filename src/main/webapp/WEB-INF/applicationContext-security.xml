@@ -30,10 +30,6 @@
 
     <security:authentication-manager>
         <security:authentication-provider>
-            <!--<security:user-service>
-                  <security:user name="gigi" password="p" authorities="USER"/>
-                  <security:user name="annette" password="p" authorities="USER,ADMIN"/>
-              </security:user-service>-->
             <security:jdbc-user-service data-source-ref="myDataSource"/>
             <security:password-encoder ref="bcryptEncoder"/>
         </security:authentication-provider>
