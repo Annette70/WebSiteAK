@@ -80,15 +80,6 @@
 
     <mvc:annotation-driven conversion-service="myConversionService"/>
 
-  <!--<mvc:message-converters>
-        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-            <property name="objectMapper">
-                <bean class="edu.wctc.rest.HibernateAwareObjectMapper"/>
-            </property>
-        </bean>
-    </mvc:message-converters>
-</mvc:annotation-driven>-->
-
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
         <property name="prefix" value="/WEB-INF/view/"/>

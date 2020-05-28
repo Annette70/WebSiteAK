@@ -14,8 +14,9 @@
 <div id="container">
 
     <div id="content">
-        <form:form action="${cp}/emoji/save" modelAttribute="emoji" enctype="multipart/form-data"
-                   method="post">
+        <form:form action="${cp}/emoji/user/save" modelAttribute="emoji" enctype="multipart/form-data"
+                   method="post"
+                   nctype="multipart/form-data">
             <form:hidden path="id" value="${emoji.id}"/>
             <form:hidden path="imageId" value="${emoji.imageId}"/>
 

@@ -100,6 +100,6 @@ public class EmojiController {
     public String deleteEmoji(@RequestParam("emojiID") int theID){
         emojiService.deleteEmoji(theID);
 
-        return "redirect/emoji/list4";
+        return "redirect/emoji/list-emojis";
     }
 }
